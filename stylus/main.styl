@@ -1,0 +1,53 @@
+@import 'normalize.styl'
+@import 'fonts.styl'
+@import '_animateCSS.styl'
+@import 'mixins.styl'
+@import '_header.styl'
+@import '_main_page.styl'
+@import '_footer.styl'
+
+html
+    font-size 16px
+*
+    box-sizing border-box
+
+a
+    color mainGeneralTextColor
+    text-decoration none
+body
+    overflow-x hidden
+    background mainBGcolor
+    color mainGeneralTextColor
+    font-family 'Ubuntu', sans-serif
+    
+.container
+    padding 0 7%
+  
+ul
+    list-style none
+    margin 0
+    padding 0
+//кнопка действие СТРЕЛКА
+.actionButton
+    position absolute
+    font-size 3rem
+//кнопка для покупки 
+.actionBuyBlock
+    display -webkit-flex
+    display -moz-flex
+    display -ms-flex
+    display -o-flex
+    display flex
+    flex-flow row wrap
+    margin 2rem 0
+    text-align center
+.actionBuyButton
+    margin 0.5rem 1.5rem
+    padding 1rem 2rem 1rem 2rem
+    border 2px solid mainColor1
+    font-size 1.4rem
+    text-transform uppercase
+    &:hover
+        background mainColor1
+    i
+        margin-right 0.5rem

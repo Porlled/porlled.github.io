@@ -20,8 +20,8 @@
                 <ul class="logotype_navigation">
                     <li class="logotype_navigation_item">Logotype</li>
                 </ul>
-                <ul class="side_navigation_list">
-                    <li class="navigation_list-item"><a href="#">Home1</a></li>
+                <ul class="side_navigation_list" id="actionScroll">
+                    <li class="navigation_list-item"><a href="#top_feature_block">Home1</a></li>
                     <li class="navigation_list-item"><a href="#">Home2</a></li>
                     <li class="navigation_list-item"><a href="#">Home3</a></li>
                     <li class="navigation_list-item"><a href="#">Home4</a></li>
@@ -37,14 +37,16 @@
                         <br> Используйте беспроводное одноразовое зарядное
                         <br> устройство, которое удобно носить в кармане
                     </p>
-                    <a href="#" class="actionButton animated"><i class="fas fa-angle-double-down"></i></a>
+                    <div id="actionScroll">
+                        <a href="#top_feature_block" class="actionButton animated fas fa-angle-double-down"></a>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
     <main class="main_page">
         <div class="container">
-            <div class="top_feature_block">
+            <div class="top_feature_block" id="top_feature_block">
                 <div class="top_feature">
                     <h1 class="main-title">Одноразовое зарядное устройство</h1>
                     <div class="feature_block">
@@ -70,12 +72,12 @@
                         </ul>
                     </div>
                     <div class="top_feature-left">
-                        <img src="/image/powerstation.png" alt="" class="wow fadeInLeft" data-wow-duration="1.4s" data-wow-delay="0.5s">
-                        <img src="/image/powerstation.png" alt="" class="wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.5s">
+                        <img src="/image/powerstation.png" alt="" class="wow fadeInLeft" data-wow-duration="1.1s" data-wow-delay="0.5s">
+                        <img src="/image/powerstation.png" alt="" class="wow fadeInRight" data-wow-duration="1.1s" data-wow-delay="0.5s">
                     </div>
                     <div class="actionBuyBlock">
-                        <a href="" class="actionBuyButton android wow fadeInLeft" data-wow-duration="1.4s" data-wow-delay="0.5s"><i class="fab fa-android"></i> Купить для android</a>
-                        <a href="" class="actionBuyButton iphone wow fadeInRight" data-wow-duration="1.4s" data-wow-delay="0.5s"><i class="fab fa-apple"></i> купить для IPhone</a>
+                        <a href="" class="actionBuyButton android wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.5s"><i class="fab fa-android"></i> Купить для android</a>
+                        <a href="" class="actionBuyButton iphone wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.5s"><i class="fab fa-apple"></i> купить для IPhone</a>
                     </div>
                 </div>
             </div>
@@ -90,12 +92,12 @@
         <div data-depth="0.5"></div>
     </div>
 -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/wow.min.js"></script>
     <!--    <script src="/js/rellax.min.js"></script>-->
     <script src="/js/parallax.min.js"></script>
     <script>
-        $('document').ready(function() {
+        $(document).ready(function() {
             // включает Bounce анимацию
             var bounceAnimation = setInterval(function() {
                 $('.actionButton').toggleClass('bounce');
@@ -106,6 +108,15 @@
                     clearInterval(bounceAnimation);
                 });
             }, 1000);
+            // scroll по нажатию на стрелку
+            $('#actionScroll, .actionButton').on('click', 'a', function(event) {
+                event.preventDefault();
+                var identif = $(this).attr('href'),
+                    top = $(identif).offset().top;
+                $('body, html').animate({
+                    scrollTop: top
+                }, 1500);
+            });
             // анимация появления при просмотре
             var wow = new WOW();
             wow.init();

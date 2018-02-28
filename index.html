@@ -37,8 +37,9 @@
                         <br> Используйте беспроводное одноразовое зарядное
                         <br> устройство, которое удобно носить в кармане
                     </p>
-                    <div id="actionScroll">
-                        <a href="#top_feature_block" class="actionButton animated fas fa-angle-double-down"></a>
+                    <div class="actionScroll_block" id="actionScroll">
+                        <a href="#top_feature_block" class="actionButtonArrow animated fas fa-angle-double-down"></a>
+                        <a href="#top_feature_block" class="actionButtonClassic">Узнать подробнее</a>
                     </div>
                 </div>
             </div>
@@ -100,16 +101,16 @@
         $(document).ready(function() {
             // включает Bounce анимацию
             var bounceAnimation = setInterval(function() {
-                $('.actionButton').toggleClass('bounce');
+                $('.actionButtonArrow').toggleClass('bounce');
             }, 2500);
             //выключает bounce анимацию если нажать на кнопку
             setTimeout(function() {
-                $('.actionButton').click(function() {
+                $('.actionButtonArrow').click(function() {
                     clearInterval(bounceAnimation);
                 });
             }, 1000);
             // scroll по нажатию на стрелку
-            $('#actionScroll, .actionButton').on('click', 'a', function(event) {
+            $('#actionScroll, .actionButtonArrow, .actionButtonClassic').on('click', 'a', function(event) {
                 event.preventDefault();
                 var identif = $(this).attr('href'),
                     top = $(identif).offset().top;

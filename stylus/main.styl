@@ -27,11 +27,31 @@ ul
     list-style none
     margin 0
     padding 0
+//блок с кнопками scroll хедер
+.actionScroll_block
+    display -webkit-flex
+    display -moz-flex
+    display -ms-flex
+    display -o-flex
+    display flex
+    flex-flow column nowrap
+    text-align center
+// кнопка призыв классик
+.actionButtonClassic
+    width 30%
+    margin 1rem auto
+    border 2px solid mainColor1
+    padding 1rem 2rem
+    font-weight 100
+    font-size 1.5rem
+    &:hover
+        background mainColor1
 //кнопка действие СТРЕЛКА
-.actionButton
-    position absolute
+.actionButtonArrow
+    margin 0 auto
+    width 5%
     font-size 3rem
-//кнопка для покупки 
+//кнопка для покупки
 .actionBuyBlock
     display -webkit-flex
     display -moz-flex
@@ -39,10 +59,10 @@ ul
     display -o-flex
     display flex
     flex-flow row wrap
+    position relative
     margin 2rem 0
-    text-align center
 .actionBuyButton
-    margin 0.5rem 1.5rem
+    margin 0 auto
     padding 1rem 2rem 1rem 2rem
     border 2px solid mainColor1
     font-size 1.4rem
